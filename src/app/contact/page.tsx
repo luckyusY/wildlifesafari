@@ -25,8 +25,8 @@ const CONTACT_ITEMS = [
   {
     Icon: Phone,
     label: "Phone / WhatsApp",
-    value: "+250 7XX XXX XXX",
-    href: "tel:+250700000000",
+    value: "0789 448 107",
+    href: "tel:0789448107",
   },
   {
     Icon: Envelope,

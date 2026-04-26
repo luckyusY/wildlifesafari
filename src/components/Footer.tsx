@@ -49,7 +49,7 @@ export default function Footer() {
               </div>
               <div className="flex items-center gap-2.5 text-[13px] text-white/55">
                 <Phone size={15} weight="fill" className="text-gold-500 shrink-0" />
-                <a href="tel:+250700000000" className="hover:text-white transition-colors">+250 7XX XXX XXX</a>
+                <a href="tel:0789448107" className="hover:text-white transition-colors">0789 448 107</a>
               </div>
               <div className="flex items-center gap-2.5 text-[13px] text-white/55">
                 <Envelope size={15} weight="fill" className="text-gold-500 shrink-0" />

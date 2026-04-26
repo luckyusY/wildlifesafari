@@ -209,7 +209,7 @@ export default function Header() {
             {/* Right CTA group */}
             <div className="hidden lg:flex items-center gap-3 shrink-0">
               <a
-                href="https://wa.me/250700000000"
+                href="https://wa.me/250789448107"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-white/70 hover:text-white text-[13px] font-medium transition-colors group"
@@ -223,11 +223,11 @@ export default function Header() {
               </a>
               <div className="w-px h-4 bg-white/15" />
               <a
-                href="tel:+250700000000"
+                href="tel:0789448107"
                 className="flex items-center gap-1.5 text-white/70 hover:text-white text-[13px] font-medium transition-colors"
               >
                 <Phone size={14} weight="fill" />
-                +250 7XX XXX
+                0789 448 107
               </a>
               <Link
                 href="/contact"
@@ -386,7 +386,7 @@ export default function Header() {
                   <ArrowRight size={14} weight="bold" />
                 </Link>
                 <a
-                  href="https://wa.me/250700000000"
+                  href="https://wa.me/250789448107"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2 w-full py-3 border border-white/15 text-white/70 hover:text-white text-[13.5px] rounded-xl transition-colors"
@@ -396,8 +396,8 @@ export default function Header() {
                 </a>
                 <div className="flex items-center justify-center gap-1.5 text-white/35 text-[12px]">
                   <Phone size={12} weight="fill" />
-                  <a href="tel:+250700000000" className="hover:text-white/60 transition-colors">
-                    +250 7XX XXX XXX
+                  <a href="tel:0789448107" className="hover:text-white/60 transition-colors">
+                    0789 448 107
                   </a>
                 </div>
               </div>
