@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Users, Globe, Leaf, Trophy, CheckCircle } from "@phosphor-icons/react/dist/ssr";
+import { ArrowRight, Users, Globe, Leaf, Trophy } from "@phosphor-icons/react/dist/ssr";
 import FadeIn from "@/components/ui/FadeIn";
 import SectionHeader from "@/components/ui/SectionHeader";
 import CTABanner from "@/components/home/CTABanner";

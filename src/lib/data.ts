@@ -44,6 +44,7 @@ export interface GalleryImage {
   src: string;
   alt: string;
   category: string;
+  featured?: boolean;
 }
 
 export interface TeamMember {
@@ -485,21 +486,66 @@ export const TESTIMONIALS: Testimonial[] = [
    GALLERY
 ───────────────────────────────────────────────────── */
 export const GALLERY_IMAGES: GalleryImage[] = [
-  { id: 1, src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=900&q=80", alt: "Safari landscape at golden sunset", category: "Landscapes" },
-  { id: 2, src: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=900&q=80", alt: "Majestic lion resting on a rock", category: "Wildlife" },
-  { id: 3, src: "https://images.unsplash.com/photo-1605552093758-4665e1ce9d6a?w=900&q=80", alt: "Mountain gorilla portrait in the mist", category: "Gorillas" },
-  { id: 4, src: "https://images.unsplash.com/photo-1537519646099-335112f03225?w=900&q=80", alt: "Zebra herd at a waterhole", category: "Wildlife" },
-  { id: 5, src: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=900&q=80", alt: "Elephant herd crossing the savanna", category: "Wildlife" },
-  { id: 6, src: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=900&q=80", alt: "African golden-hour sky over the plains", category: "Landscapes" },
-  { id: 7, src: "https://images.unsplash.com/photo-1549366021-9f761d040c87?w=900&q=80", alt: "Giraffe silhouette against blue sky", category: "Wildlife" },
-  { id: 8, src: "https://images.unsplash.com/photo-1574068469019-9b3b1f9cbf23?w=900&q=80", alt: "Chimpanzee resting in the forest canopy", category: "Gorillas" },
-  { id: 9, src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=900&q=80", alt: "Safari guide with tourists on a game drive", category: "Experiences" },
-  { id: 10, src: "https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?w=900&q=80", alt: "Traditional cultural ceremony", category: "Culture" },
-  { id: 11, src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=80", alt: "Scenic road through the green highlands", category: "Landscapes" },
-  { id: 12, src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=900&q=80", alt: "Trekkers ascending a volcano at sunrise", category: "Adventures" },
+  // ── Wildlife ──────────────────────────────────────────
+  { id: 1,  src: "https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=1200&q=85", alt: "Majestic lion resting on a sun-warmed rock", category: "Wildlife", featured: true },
+  { id: 2,  src: "https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=1200&q=85", alt: "Elephant herd crossing the open savanna at dusk", category: "Wildlife", featured: true },
+  { id: 3,  src: "https://images.unsplash.com/photo-1537519646099-335112f03225?w=1200&q=85", alt: "Zebra herd gathered at a waterhole", category: "Wildlife" },
+  { id: 4,  src: "https://images.unsplash.com/photo-1549366021-9f761d040c87?w=1200&q=85", alt: "Giraffe silhouette against a deep blue sky", category: "Wildlife", featured: true },
+  { id: 5,  src: "https://images.unsplash.com/photo-1518717758536-85ae29035b6d?w=1200&q=85", alt: "Hippos bathing in a river, eyes above the water", category: "Wildlife" },
+  { id: 6,  src: "https://images.unsplash.com/photo-1456926631375-92c8ce872def?w=1200&q=85", alt: "Cheetah scanning the savanna for prey", category: "Wildlife" },
+  { id: 7,  src: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=1200&q=85", alt: "Two lions resting in golden afternoon light", category: "Wildlife" },
+  { id: 8,  src: "https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=1200&q=85", alt: "African buffalo herd moving through tall grass", category: "Wildlife" },
+  { id: 9,  src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85", alt: "Flamingos gathered at Lake Nakuru in thousands", category: "Wildlife" },
+  { id: 10, src: "https://images.unsplash.com/photo-1612528965840-f25bfcf71f05?w=1200&q=85", alt: "Wildebeest crossing the Mara River during migration", category: "Wildlife" },
+
+  // ── Gorillas & Primates ───────────────────────────────
+  { id: 11, src: "https://images.unsplash.com/photo-1605552093758-4665e1ce9d6a?w=1200&q=85", alt: "Mountain gorilla portrait deep in the misty forest", category: "Gorillas", featured: true },
+  { id: 12, src: "https://images.unsplash.com/photo-1574068469019-9b3b1f9cbf23?w=1200&q=85", alt: "Chimpanzee resting in the lush forest canopy", category: "Gorillas" },
+  { id: 13, src: "https://images.unsplash.com/photo-1589802829985-817e51171b92?w=1200&q=85", alt: "Young gorilla peeking through bamboo leaves", category: "Gorillas" },
+  { id: 14, src: "https://images.unsplash.com/photo-1553603227-2358aabe8842?w=1200&q=85", alt: "Gorilla silverback sitting in peaceful contemplation", category: "Gorillas" },
+
+  // ── Landscapes ────────────────────────────────────────
+  { id: 15, src: "https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1200&q=85", alt: "African savanna bathed in warm golden sunset", category: "Landscapes", featured: true },
+  { id: 16, src: "https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=1200&q=85", alt: "Sweeping plains glowing under an amber African sky", category: "Landscapes" },
+  { id: 17, src: "https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=1200&q=85", alt: "Winding road through Rwanda's emerald green highlands", category: "Landscapes" },
+  { id: 18, src: "https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1200&q=85", alt: "Acacia trees silhouetted against a blazing sunrise", category: "Landscapes" },
+  { id: 19, src: "https://images.unsplash.com/photo-1516952324573-5f96e89ab5c7?w=1200&q=85", alt: "Misty volcanic mountains of the Virunga range", category: "Landscapes" },
+  { id: 20, src: "https://images.unsplash.com/photo-1504197832061-98358e706197?w=1200&q=85", alt: "Vast Serengeti plain stretching to the horizon", category: "Landscapes" },
+
+  // ── Culture ───────────────────────────────────────────
+  { id: 21, src: "https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?w=1200&q=85", alt: "Traditional East African cultural celebration", category: "Culture" },
+  { id: 22, src: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1200&q=85", alt: "Colourful local market in Kigali city centre", category: "Culture" },
+  { id: 23, src: "https://images.unsplash.com/photo-1596797038530-2c107229654b?w=1200&q=85", alt: "Maasai warriors performing a traditional dance", category: "Culture" },
+  { id: 24, src: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=1200&q=85", alt: "Village elder sharing stories around a evening fire", category: "Culture" },
+
+  // ── Experiences ───────────────────────────────────────
+  { id: 25, src: "https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=1200&q=85", alt: "Expert safari guide tracking wildlife through the bush", category: "Experiences", featured: true },
+  { id: 26, src: "https://images.unsplash.com/photo-1577401132921-cb39bb0adcff?w=1200&q=85", alt: "Hot-air balloon drifting over the Serengeti at dawn", category: "Experiences" },
+  { id: 27, src: "https://images.unsplash.com/photo-1527529482837-4698179dc6ce?w=1200&q=85", alt: "Open game-drive vehicle with guests and binoculars", category: "Experiences" },
+  { id: 28, src: "https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=1200&q=85", alt: "Guided night-safari spotlight scanning the bushveld", category: "Experiences" },
+
+  // ── Adventures ────────────────────────────────────────
+  { id: 29, src: "https://images.unsplash.com/photo-1551632811-561732d1e306?w=1200&q=85", alt: "Trekkers ascending Mount Bisoke at first light", category: "Adventures", featured: true },
+  { id: 30, src: "https://images.unsplash.com/photo-1551632815-6a11e44f3a71?w=1200&q=85", alt: "Hikers on a rainforest trail in Nyungwe Park", category: "Adventures" },
+  { id: 31, src: "https://images.unsplash.com/photo-1544735716-392fe2489ffa?w=1200&q=85", alt: "Rushing waterfall deep in the Congo rainforest", category: "Adventures" },
+  { id: 32, src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1200&q=85", alt: "Kayaking on Lake Kivu at a golden sunset", category: "Adventures" },
+
+  // ── Cars / Car Rental ─────────────────────────────────
+  { id: 33, src: "https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=1200&q=85", alt: "Rugged Jeep Wrangler ready for off-road safari tracks", category: "Cars", featured: true },
+  { id: 34, src: "https://images.unsplash.com/photo-1519641471654-76ce0107ad1b?w=1200&q=85", alt: "4×4 safari vehicle navigating a dusty bush trail", category: "Cars" },
+  { id: 35, src: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=1200&q=85", alt: "Black Land Cruiser parked at a scenic overlook", category: "Cars" },
+  { id: 36, src: "https://images.unsplash.com/photo-1568605117036-5fe5e7bab0b7?w=1200&q=85", alt: "White safari SUV on a wide open savanna road", category: "Cars" },
+  { id: 37, src: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=1200&q=85", alt: "Modern 4×4 rental vehicle with roof pop-up tent", category: "Cars" },
+
+  // ── Accommodation ─────────────────────────────────────
+  { id: 38, src: "https://images.unsplash.com/photo-1582719508461-905c673771fd?w=1200&q=85", alt: "Luxury safari tented suite with panoramic bush views", category: "Accommodation", featured: true },
+  { id: 39, src: "https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=1200&q=85", alt: "Infinity pool overlooking the African wilderness at dusk", category: "Accommodation" },
+  { id: 40, src: "https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=1200&q=85", alt: "Eco-lodge perched above the forest canopy", category: "Accommodation" },
+  { id: 41, src: "https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=1200&q=85", alt: "Elegant safari lodge bedroom with open-air veranda", category: "Accommodation" },
+  { id: 42, src: "https://images.unsplash.com/photo-1445019980597-93fa8acb246c?w=1200&q=85", alt: "Tented camp interior with handcrafted wooden furnishings", category: "Accommodation" },
 ];
 
-export const GALLERY_CATEGORIES = ["All", "Wildlife", "Gorillas", "Landscapes", "Culture", "Experiences", "Adventures"];
+export const GALLERY_CATEGORIES = ["All", "Wildlife", "Gorillas", "Landscapes", "Cars", "Accommodation", "Experiences", "Adventures", "Culture"];
 
 /* ─────────────────────────────────────────────────────
    STATS & TEAM
