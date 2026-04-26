@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wildlife Friendly Safari Ltd – East Africa's Premier Safari Company</title>
+  <meta name="description" content="Wildlife Friendly Safari Ltd offers premier safari experiences including gorilla trekking, wildlife safaris, cultural tours, car rental, agro tourism and more across East Africa." />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ─── CSS Reset & Variables ─────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --green-900: #1a3a1a;
+      --green-800: #1f4e1f;
+      --green-700: #276527;
+      --green-600: #2f7d2f;
+      --green-500: #3a9e3a;
+      --green-400: #4db84d;
+      --green-100: #e8f5e8;
+      --gold:      #c9962c;
+      --gold-light:#f0c955;
+      --cream:     #faf7f0;
+      --dark:      #141414;
+      --gray-700:  #3c3c3c;
+      --gray-500:  #6b6b6b;
+      --gray-200:  #e5e5e5;
+      --white:     #ffffff;
+      --shadow-sm: 0 2px 8px rgba(0,0,0,.10);
+      --shadow-md: 0 6px 24px rgba(0,0,0,.16);
+      --shadow-lg: 0 16px 48px rgba(0,0,0,.22);
+      --radius:    12px;
+      --radius-lg: 20px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--dark);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    img { display: block; width: 100%; object-fit: cover; }
+    a   { text-decoration: none; color: inherit; }
+
+    /* ─── Utility ─────────────────────────────────────── */
+    .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+    .section    { padding: 96px 0; }
+    .section-sm { padding: 64px 0; }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--green-600);
+      background: var(--green-100);
+      padding: 6px 16px;
+      border-radius: 100px;
+      margin-bottom: 16px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4vw, 44px);
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--green-900);
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--gray-500);
+      margin-top: 14px;
+      max-width: 560px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 32px;
+      border-radius: 100px;
+      font-weight: 600;
+      font-size: 15px;
+      cursor: pointer;
+      transition: all .22s ease;
+      border: 2px solid transparent;
+    }
+    .btn-primary {
+      background: var(--green-600);
+      color: var(--white);
+    }
+    .btn-primary:hover { background: var(--green-700); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+    .btn-outline {
+      background: transparent;
+      border-color: var(--white);
+      color: var(--white);
+    }
+    .btn-outline:hover { background: var(--white); color: var(--green-700); }
+
+    /* ─── NAVBAR ──────────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      padding: 18px 0;
+      transition: all .3s ease;
+    }
+    nav.scrolled {
+      background: rgba(26,58,26,.96);
+      backdrop-filter: blur(12px);
+      box-shadow: var(--shadow-md);
+      padding: 12px 0;
+    }
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .nav-logo-icon {
+      width: 44px; height: 44px;
+      background: var(--green-500);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+    }
+    .nav-logo-text { color: var(--white); }
+    .nav-logo-text strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+    .nav-logo-text span { font-size: 11px; opacity: .75; letter-spacing: .05em; }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .nav-links a {
+      color: rgba(255,255,255,.85);
+      font-size: 14px;
+      font-weight: 500;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta { display: flex; gap: 12px; align-items: center; }
+    .nav-phone {
+      color: var(--gold-light);
+      font-size: 14px;
+      font-weight: 600;
+    }
+
+    /* hamburger */
+    .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .hamburger span { width: 24px; height: 2px; background: white; border-radius: 2px; transition: .3s; }
+
+    /* ─── HERO ────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero-bg img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transform: scale(1.05);
+      animation: slowZoom 14s ease-out forwards;
+    }
+    @keyframes slowZoom { to { transform: scale(1); } }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        135deg,
+        rgba(15,35,15,.78) 0%,
+        rgba(26,58,26,.55) 60%,
+        rgba(0,0,0,.30) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      color: var(--white);
+      padding-top: 100px;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.25);
+      backdrop-filter: blur(8px);
+      color: var(--gold-light);
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      padding: 8px 20px;
+      border-radius: 100px;
+      margin-bottom: 28px;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(40px, 6.5vw, 80px);
+      font-weight: 900;
+      line-height: 1.1;
+      margin-bottom: 24px;
+    }
+    .hero-title .accent { color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 20px);
+      opacity: .88;
+      max-width: 580px;
+      margin-bottom: 40px;
+      line-height: 1.65;
+    }
+    .hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    .hero-stats {
+      display: flex;
+      gap: 40px;
+      margin-top: 64px;
+      flex-wrap: wrap;
+    }
+    .stat { text-align: center; }
+    .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gold-light);
+      display: block;
+    }
+    .stat-label { font-size: 13px; opacity: .75; letter-spacing: .06em; text-transform: uppercase; }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,.65);
+      font-size: 12px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+    .scroll-line {
+      width: 1px;
+      height: 48px;
+      background: linear-gradient(to bottom, transparent, rgba(255,255,255,.6));
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+    @keyframes scrollPulse { 0%,100%{opacity:.4} 50%{opacity:1} }
+
+    /* ─── MARQUEE STRIP ────────────────────────────────── */
+    .marquee-strip {
+      background: var(--green-800);
+      color: var(--white);
+      padding: 14px 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex;
+      gap: 0;
+      animation: marquee 28s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 0 32px;
+      font-size: 14px;
+      font-weight: 500;
+      opacity: .88;
+    }
+    .marquee-dot { width: 6px; height: 6px; background: var(--gold); border-radius: 50%; flex-shrink: 0; }
+    @keyframes marquee { 0%{ transform: translateX(0); } 100%{ transform: translateX(-50%); } }
+
+    /* ─── ABOUT ────────────────────────────────────────── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .about-images {
+      position: relative;
+    }
+    .about-img-main {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 480px;
+      box-shadow: var(--shadow-lg);
+    }
+    .about-img-badge {
+      position: absolute;
+      bottom: -24px; right: -24px;
+      background: var(--green-600);
+      color: white;
+      border-radius: var(--radius);
+      padding: 20px 24px;
+      box-shadow: var(--shadow-md);
+      text-align: center;
+    }
+    .about-img-badge strong {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      display: block;
+      line-height: 1;
+    }
+    .about-img-badge span { font-size: 13px; opacity: .85; }
+    .about-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 32px;
+    }
+    .about-feat {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+    .feat-icon {
+      width: 40px; height: 40px;
+      background: var(--green-100);
+      border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+    }
+    .feat-text strong { font-size: 14px; font-weight: 600; color: var(--green-900); }
+    .feat-text p { font-size: 13px; color: var(--gray-500); margin-top: 2px; }
+
+    /* ─── SERVICES ─────────────────────────────────────── */
+    .services { background: var(--cream); }
+    .services-header {
+      text-align: center;
+      margin-bottom: 60px;
+    }
+    .services-header .section-sub { margin: 14px auto 0; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 28px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform .28s ease, box-shadow .28s ease;
+      cursor: pointer;
+    }
+    .service-card:hover { transform: translateY(-8px); box-shadow: var(--shadow-lg); }
+    .service-card:hover .service-img img { transform: scale(1.08); }
+
+    .service-img {
+      height: 220px;
+      overflow: hidden;
+      position: relative;
+    }
+    .service-img img { height: 100%; transition: transform .55s ease; }
+    .service-img-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.45) 0%, transparent 60%);
+    }
+    .service-num {
+      position: absolute;
+      top: 16px; left: 16px;
+      background: var(--gold);
+      color: var(--dark);
+      font-size: 11px;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+    }
+
+    .service-body { padding: 24px; }
+    .service-icon { font-size: 28px; margin-bottom: 10px; }
+    .service-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--green-900);
+      margin-bottom: 10px;
+    }
+    .service-desc { font-size: 14px; color: var(--gray-500); line-height: 1.65; }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--green-600);
+      transition: gap .2s;
+    }
+    .service-card:hover .service-link { gap: 10px; }
+
+    /* ─── WHY US ────────────────────────────────────────── */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+    }
+    .why-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 520px;
+      box-shadow: var(--shadow-lg);
+    }
+    .why-points { display: flex; flex-direction: column; gap: 28px; margin-top: 36px; }
+    .why-point {
+      display: flex;
+      align-items: flex-start;
+      gap: 18px;
+      padding: 20px;
+      border-radius: var(--radius);
+      transition: background .2s;
+    }
+    .why-point:hover { background: var(--green-100); }
+    .why-icon {
+      width: 52px; height: 52px; flex-shrink: 0;
+      background: var(--green-100);
+      border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px;
+    }
+    .why-text h4 { font-size: 16px; font-weight: 700; color: var(--green-900); margin-bottom: 6px; }
+    .why-text p  { font-size: 14px; color: var(--gray-500); }
+
+    /* ─── GALLERY ───────────────────────────────────────── */
+    .gallery { background: var(--dark); padding: 96px 0; }
+    .gallery .section-title { color: var(--white); }
+    .gallery .section-sub  { color: rgba(255,255,255,.6); }
+    .gallery-header { text-align: center; margin-bottom: 56px; }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 12px;
+    }
+    .g-item { border-radius: var(--radius); overflow: hidden; }
+    .g-item img { height: 100%; object-fit: cover; transition: transform .5s ease; }
+    .g-item:hover img { transform: scale(1.06); }
+    .g-item-tall { grid-row: span 2; }
+    .g-item-tall img { height: 100%; }
+    .g-item:not(.g-item-tall) img { height: 220px; }
+
+    /* ─── DESTINATIONS ──────────────────────────────────── */
+    .dest-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin-top: 56px;
+    }
+    .dest-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      height: 320px;
+      position: relative;
+      cursor: pointer;
+    }
+    .dest-card img { height: 100%; transition: transform .5s; }
+    .dest-card:hover img { transform: scale(1.07); }
+    .dest-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,.1) 60%);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 28px;
+      color: white;
+    }
+    .dest-tag {
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 8px;
+    }
+    .dest-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 24px;
+      font-weight: 700;
+    }
+    .dest-info { font-size: 13px; opacity: .8; margin-top: 4px; }
+
+    /* ─── TESTIMONIALS ──────────────────────────────────── */
+    .testimonials { background: var(--cream); }
+    .testimonials-header { text-align: center; margin-bottom: 56px; }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: white;
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+    }
+    .testi-stars { color: var(--gold); font-size: 18px; margin-bottom: 16px; }
+    .testi-text  { font-size: 15px; color: var(--gray-700); line-height: 1.7; font-style: italic; flex: 1; }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-top: 24px;
+      padding-top: 20px;
+      border-top: 1px solid var(--gray-200);
+    }
+    .testi-avatar {
+      width: 48px; height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+    .testi-avatar img { height: 100%; }
+    .testi-name { font-weight: 600; font-size: 15px; }
+    .testi-country { font-size: 13px; color: var(--gray-500); }
+
+    /* ─── CTA BANNER ─────────────────────────────────────── */
+    .cta-banner {
+      background: linear-gradient(135deg, var(--green-900) 0%, var(--green-700) 100%);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("https://images.unsplash.com/photo-1516426122078-c23e76319801?w=1600&q=60");
+      background-size: cover;
+      background-position: center;
+      opacity: .12;
+    }
+    .cta-content { position: relative; z-index: 1; }
+    .cta-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(28px, 4.5vw, 52px);
+      font-weight: 700;
+      color: white;
+      margin-bottom: 16px;
+    }
+    .cta-sub { font-size: 18px; color: rgba(255,255,255,.78); margin-bottom: 36px; }
+    .cta-actions { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
+    .btn-gold { background: var(--gold); color: var(--dark); border-color: var(--gold); }
+    .btn-gold:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-md); }
+
+    /* ─── CONTACT ────────────────────────────────────────── */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 64px;
+      align-items: start;
+    }
+    .contact-info-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--green-900);
+      margin-bottom: 16px;
+    }
+    .contact-info-sub { color: var(--gray-500); font-size: 15px; margin-bottom: 36px; }
+    .contact-items { display: flex; flex-direction: column; gap: 20px; }
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .contact-icon {
+      width: 48px; height: 48px;
+      background: var(--green-100);
+      border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+    .contact-item-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--green-900); margin-bottom: 2px; }
+    .contact-item-text span  { font-size: 14px; color: var(--gray-500); }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      box-shadow: var(--shadow-md);
+    }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .form-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 20px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: var(--green-900); }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      border: 1.5px solid var(--gray-200);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-family: 'Inter', sans-serif;
+      font-size: 14px;
+      color: var(--dark);
+      transition: border-color .2s;
+      outline: none;
+      background: var(--cream);
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus { border-color: var(--green-500); background: white; }
+    .form-group textarea { min-height: 110px; resize: vertical; }
+    .form-submit { width: 100%; padding: 15px; border: none; font-size: 16px; }
+
+    /* ─── FOOTER ─────────────────────────────────────────── */
+    footer {
+      background: var(--green-900);
+      color: var(--white);
+      padding: 72px 0 0;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr 1fr;
+      gap: 48px;
+      padding-bottom: 56px;
+    }
+    .footer-brand p { font-size: 14px; color: rgba(255,255,255,.6); line-height: 1.7; margin-top: 16px; margin-bottom: 24px; }
+    .footer-socials { display: flex; gap: 12px; }
+    .social-icon {
+      width: 38px; height: 38px;
+      background: rgba(255,255,255,.1);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px;
+      transition: background .2s;
+      cursor: pointer;
+    }
+    .social-icon:hover { background: var(--green-600); }
+
+    .footer-col h4 {
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-bottom: 20px;
+    }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-links a { font-size: 14px; color: rgba(255,255,255,.65); transition: color .2s; }
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,.1);
+      padding: 20px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .footer-bottom p { font-size: 13px; color: rgba(255,255,255,.5); }
+
+    /* ─── RESPONSIVE ─────────────────────────────────────── */
+    @media (max-width: 1024px) {
+      .about-grid, .why-grid, .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+      .about-img-badge { bottom: -16px; right: 16px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .g-item-tall { grid-row: span 1; }
+      .g-item img, .g-item-tall img { height: 220px !important; }
+      .dest-grid { grid-template-columns: 1fr 1fr; }
+      .testi-grid { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .section, .gallery { padding: 64px 0; }
+      .nav-links, .nav-cta .nav-phone { display: none; }
+      .hamburger { display: flex; }
+      .hero-title { font-size: 38px; }
+      .hero-stats { gap: 24px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .dest-grid { grid-template-columns: 1fr; }
+      .testi-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+      .footer-bottom { flex-direction: column; text-align: center; }
+      .about-features { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ══════════════════════════════════════════ -->
+  <nav id="navbar">
+    <div class="container">
+      <div class="nav-inner">
+        <a href="#" class="nav-logo">
+          <div class="nav-logo-icon">🦁</div>
+          <div class="nav-logo-text">
+            <strong>Wildlife Friendly</strong>
+            <span>Safari Ltd</span>
+          </div>
+        </a>
+
+        <ul class="nav-links">
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#destinations">Destinations</a></li>
+          <li><a href="#gallery">Gallery</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+
+        <div class="nav-cta">
+          <span class="nav-phone">📞 +250 7XX XXX XXX</span>
+          <a href="#contact" class="btn btn-primary" style="padding:10px 22px;font-size:13px;">Book Safari</a>
+        </div>
+        <div class="hamburger" id="hamburger">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ═══ HERO ═════════════════════════════════════════════ -->
+  <section class="hero" id="hero">
+    <div class="hero-bg">
+      <img
+        src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=1920&q=80"
+        alt="African safari landscape"
+      />
+    </div>
+    <div class="hero-overlay"></div>
+
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-badge">
+          🌍 &nbsp; East Africa's Premier Safari Experience
+        </div>
+        <h1 class="hero-title">
+          Discover the Wild<br/>Heart of <span class="accent">Africa</span>
+        </h1>
+        <p class="hero-sub">
+          From gorilla trekking in misty jungles to breathtaking wildlife safaris on the savanna — we craft unforgettable journeys tailored just for you.
+        </p>
+        <div class="hero-actions">
+          <a href="#services" class="btn btn-primary">Explore Our Packages</a>
+          <a href="#contact" class="btn btn-outline">Plan My Trip</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="stat-number">500+</span>
+            <span class="stat-label">Happy Travellers</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">10+</span>
+            <span class="stat-label">Services Offered</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">5★</span>
+            <span class="stat-label">Rated Experience</span>
+          </div>
+          <div class="stat">
+            <span class="stat-number">15+</span>
+            <span class="stat-label">Destinations</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-scroll">
+      <div class="scroll-line"></div>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ═══ MARQUEE ═══════════════════════════════════════════ -->
+  <div class="marquee-strip">
+    <div class="marquee-track" id="marqueeTrack">
+      <!-- items duplicated by JS for infinite loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>Wildlife Safari</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Gorilla Trekking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Car Rental</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Agro Tourism</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Chimps Trekking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Cultural Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Educational Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Adventure Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Road Trip Packages</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Long & Short Term Stay</span>
+      <!-- duplicate for seamless loop -->
+      <span class="marquee-item"><span class="marquee-dot"></span>Wildlife Safari</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Gorilla Trekking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Car Rental</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Agro Tourism</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Chimps Trekking</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Cultural Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Educational Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Adventure Tours</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Road Trip Packages</span>
+      <span class="marquee-item"><span class="marquee-dot"></span>Long & Short Term Stay</span>
+    </div>
+  </div>
+
+  <!-- ═══ ABOUT ══════════════════════════════════════════════ -->
+  <section class="section" id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images">
+          <div class="about-img-main">
+            <img
+              src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=800&q=80"
+              alt="Safari guide with tourists"
+            />
+          </div>
+          <div class="about-img-badge">
+            <strong>10+</strong>
+            <span>Years of<br/>Experience</span>
+          </div>
+        </div>
+
+        <div class="about-text">
+          <span class="tag">About Us</span>
+          <h2 class="section-title">We Are Your Trusted Safari Partners in East Africa</h2>
+          <p class="section-sub">
+            Wildlife Friendly Safari Ltd is a premier travel and tourism company specializing in immersive, eco-friendly safari experiences across East Africa. We believe every journey should tell a story.
+          </p>
+          <div class="about-features">
+            <div class="about-feat">
+              <div class="feat-icon">🦒</div>
+              <div class="feat-text">
+                <strong>Wildlife Expert</strong>
+                <p>Certified guides with deep bush knowledge</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon">🌿</div>
+              <div class="feat-text">
+                <strong>Eco-Friendly</strong>
+                <p>Committed to conservation & community</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon">✈️</div>
+              <div class="feat-text">
+                <strong>Custom Itineraries</strong>
+                <p>Tailored trips to match your dream</p>
+              </div>
+            </div>
+            <div class="about-feat">
+              <div class="feat-icon">🛡️</div>
+              <div class="feat-text">
+                <strong>Safe & Reliable</strong>
+                <p>Licensed, insured, guest-focused</p>
+              </div>
+            </div>
+          </div>
+          <a href="#contact" class="btn btn-primary" style="margin-top:36px;">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ SERVICES ═══════════════════════════════════════════ -->
+  <section class="section services" id="services">
+    <div class="container">
+      <div class="services-header">
+        <span class="tag">What We Offer</span>
+        <h2 class="section-title">Our Safari Services</h2>
+        <p class="section-sub">
+          Handcrafted experiences that bring you face-to-face with Africa's most extraordinary landscapes, wildlife, and cultures.
+        </p>
+      </div>
+
+      <div class="services-grid">
+
+        <!-- 1. Wildlife Safari -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=75" alt="Wildlife Safari" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">01</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🦁</div>
+            <h3 class="service-title">Wildlife Safari</h3>
+            <p class="service-desc">Experience Africa's Big Five and countless other species in their natural habitat. Game drives at dawn and dusk for the best sightings.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 2. Gorilla & Chimps Trekking -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1605552093758-4665e1ce9d6a?w=700&q=75" alt="Gorilla Trekking" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">02</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🦍</div>
+            <h3 class="service-title">Gorilla & Chimps Trekking</h3>
+            <p class="service-desc">Come face-to-face with mountain gorillas and chimpanzees in the lush volcanic forests. A once-in-a-lifetime encounter.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 3. Car Rental -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1530521954074-e64f6810b32d?w=700&q=75" alt="Car Rental" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">03</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🚙</div>
+            <h3 class="service-title">Car Rental</h3>
+            <p class="service-desc">4×4 safari vehicles and saloon cars available with or without a driver. Explore at your own pace with fully maintained, reliable transport.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 4. Cultural & Historical Tours -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1504198322253-cfa87a0ff25f?w=700&q=75" alt="Cultural Tours" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">04</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🏛️</div>
+            <h3 class="service-title">Cultural & Historical Tours</h3>
+            <p class="service-desc">Dive deep into East Africa's rich heritage — traditional villages, ancient kingdoms, museums, and historic landmarks.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 5. Agro Tourism -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=700&q=75" alt="Agro Tourism" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">05</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🌾</div>
+            <h3 class="service-title">Agro Tourism</h3>
+            <p class="service-desc">Visit thriving farms, tea estates, and coffee plantations. Learn sustainable agriculture and enjoy fresh produce straight from the source.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 6. Educational Tours -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=700&q=75" alt="Educational Tours" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">06</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">📚</div>
+            <h3 class="service-title">Educational Tours</h3>
+            <p class="service-desc">Tailored tours for schools, universities, and research groups. Combining learning with adventure in living classrooms across East Africa.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 7. Long & Short Term Staying -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1520250497591-112f2f40a3f4?w=700&q=75" alt="Accommodation" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">07</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🏕️</div>
+            <h3 class="service-title">Long & Short Term Staying</h3>
+            <p class="service-desc">Comfortable lodge and camp arrangements whether you're here for a weekend escape or a month-long expedition. We handle the logistics.</p>
+            <a href="#contact" class="service-link">Enquire →</a>
+          </div>
+        </div>
+
+        <!-- 8. Tourism & New Investors -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=700&q=75" alt="Investor Tours" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">08</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">💼</div>
+            <h3 class="service-title">Tourism & New Investors</h3>
+            <p class="service-desc">Facilitating site visits, investor tours, and business-oriented travel for entrepreneurs exploring opportunities in East Africa's booming tourism sector.</p>
+            <a href="#contact" class="service-link">Learn More →</a>
+          </div>
+        </div>
+
+        <!-- 9. Adventure Tours -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1551632811-561732d1e306?w=700&q=75" alt="Adventure Tours" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">09</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🧗</div>
+            <h3 class="service-title">Adventure Tours</h3>
+            <p class="service-desc">Volcano hikes, kayaking, zip-lining, and mountain biking — for thrill-seekers who want to experience Africa beyond the ordinary.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+        <!-- 10. Road Trip Packages -->
+        <div class="service-card">
+          <div class="service-img">
+            <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=700&q=75" alt="Road Trip" />
+            <div class="service-img-overlay"></div>
+            <span class="service-num">10</span>
+          </div>
+          <div class="service-body">
+            <div class="service-icon">🗺️</div>
+            <h3 class="service-title">Road Trip Packages</h3>
+            <p class="service-desc">Cross-country road trips through East Africa's most scenic routes — national parks, lakes, highlands, and hidden gems along the way.</p>
+            <a href="#contact" class="service-link">Book Now →</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ WHY US ══════════════════════════════════════════════ -->
+  <section class="section" id="why">
+    <div class="container">
+      <div class="why-grid">
+        <div>
+          <span class="tag">Why Choose Us</span>
+          <h2 class="section-title">We Go Beyond the Ordinary Safari</h2>
+          <p class="section-sub">
+            Our commitment to excellence, local expertise, and genuine care for both our guests and the environment sets us apart.
+          </p>
+          <div class="why-points">
+            <div class="why-point">
+              <div class="why-icon">🌍</div>
+              <div class="why-text">
+                <h4>Deep Local Knowledge</h4>
+                <p>Born and raised in East Africa, our guides know every trail, animal behaviour, and hidden gem that most tourists never see.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-icon">🔒</div>
+              <div class="why-text">
+                <h4>Safe & Insured Travel</h4>
+                <p>All our vehicles are maintained to international standards and every trip is fully insured for your peace of mind.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-icon">🤝</div>
+              <div class="why-text">
+                <h4>Community-First Approach</h4>
+                <p>We partner with local communities, ensuring tourism benefits the people and places you visit.</p>
+              </div>
+            </div>
+            <div class="why-point">
+              <div class="why-icon">💬</div>
+              <div class="why-text">
+                <h4>24/7 Guest Support</h4>
+                <p>From booking to your last day back home, our team is always reachable and ready to help.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="why-img">
+          <img
+            src="https://images.unsplash.com/photo-1564760055775-d63b17a55c44?w=900&q=80"
+            alt="Elephant in the savanna"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ GALLERY ═════════════════════════════════════════════ -->
+  <section class="gallery" id="gallery">
+    <div class="container">
+      <div class="gallery-header">
+        <span class="tag" style="background:rgba(255,255,255,.12);color:var(--gold-light);">Photo Gallery</span>
+        <h2 class="section-title">Moments That Last Forever</h2>
+        <p class="section-sub" style="margin:14px auto 0;">A glimpse into the extraordinary experiences awaiting you across East Africa.</p>
+      </div>
+      <div class="gallery-grid">
+        <div class="g-item g-item-tall">
+          <img src="https://images.unsplash.com/photo-1547471080-7cc2caa01a7e?w=600&q=75" alt="Safari landscape" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1535941339077-2dd1c7963098?w=600&q=75" alt="Lion" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1574068469019-9b3b1f9cbf23?w=600&q=75" alt="Chimpanzees" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1537519646099-335112f03225?w=600&q=75" alt="Zebras" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1472214103451-9374bd1c798e?w=600&q=75" alt="African sunset" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=600&q=75" alt="Elephant herd" />
+        </div>
+        <div class="g-item">
+          <img src="https://images.unsplash.com/photo-1549366021-9f761d040c87?w=600&q=75" alt="Giraffe" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ DESTINATIONS ════════════════════════════════════════ -->
+  <section class="section" id="destinations">
+    <div class="container">
+      <span class="tag">Top Destinations</span>
+      <h2 class="section-title">Places We'll Take You</h2>
+      <div class="dest-grid">
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1611348586804-61bf6c080437?w=700&q=75" alt="Rwanda" />
+          <div class="dest-overlay">
+            <div class="dest-tag">Central Africa</div>
+            <div class="dest-name">Rwanda</div>
+            <div class="dest-info">Gorillas • Volcanoes • Culture</div>
+          </div>
+        </div>
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1574068469019-9b3b1f9cbf23?w=700&q=75" alt="Uganda" />
+          <div class="dest-overlay">
+            <div class="dest-tag">East Africa</div>
+            <div class="dest-name">Uganda</div>
+            <div class="dest-info">Chimps • Waterfalls • National Parks</div>
+          </div>
+        </div>
+        <div class="dest-card">
+          <img src="https://images.unsplash.com/photo-1516426122078-c23e76319801?w=700&q=75" alt="Kenya & Tanzania" />
+          <div class="dest-overlay">
+            <div class="dest-tag">East Africa</div>
+            <div class="dest-name">Kenya & Tanzania</div>
+            <div class="dest-info">Serengeti • Masai Mara • Kilimanjaro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ════════════════════════════════════════ -->
+  <section class="section testimonials" id="testimonials">
+    <div class="container">
+      <div class="testimonials-header">
+        <span class="tag">Guest Reviews</span>
+        <h2 class="section-title">What Our Travellers Say</h2>
+      </div>
+      <div class="testi-grid">
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"Absolutely incredible experience. Our guide knew every animal by name and behaviour. We saw lions, elephants, and even a leopard! Wildlife Friendly Safari made our dream trip a reality."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">
+              <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80" alt="James M." />
+            </div>
+            <div>
+              <div class="testi-name">James Morrison</div>
+              <div class="testi-country">🇬🇧 United Kingdom</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"The gorilla trekking was beyond words. Standing metres from a silverback in the wild — it changed my life. The whole trip was perfectly organised from arrival to departure."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&q=80" alt="Sophie L." />
+            </div>
+            <div>
+              <div class="testi-name">Sophie Laurent</div>
+              <div class="testi-country">🇫🇷 France</div>
+            </div>
+          </div>
+        </div>
+        <div class="testi-card">
+          <div class="testi-stars">★★★★★</div>
+          <p class="testi-text">"We came as investors to explore opportunities and left inspired. The team's local knowledge and connections were invaluable. Exceptional professionalism throughout."</p>
+          <div class="testi-author">
+            <div class="testi-avatar">
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&q=80" alt="David K." />
+            </div>
+            <div>
+              <div class="testi-name">David Kim</div>
+              <div class="testi-country">🇺🇸 United States</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA BANNER ══════════════════════════════════════════ -->
+  <div class="cta-banner">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Your African Adventure Starts Here</h2>
+        <p class="cta-sub">Let us design the safari of your dreams. Contact us today for a free, personalised itinerary.</p>
+        <div class="cta-actions">
+          <a href="#contact" class="btn btn-gold">Plan My Safari</a>
+          <a href="tel:+250700000000" class="btn btn-outline">Call Us Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ CONTACT ══════════════════════════════════════════════ -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <span class="tag">Get In Touch</span>
+          <h3 class="contact-info-title">Ready to Start Your Safari Adventure?</h3>
+          <p class="contact-info-sub">Send us your travel dates, group size, and interests — we'll craft a personalised itinerary within 24 hours.</p>
+          <div class="contact-items">
+            <div class="contact-item">
+              <div class="contact-icon">📍</div>
+              <div class="contact-item-text">
+                <strong>Our Office</strong>
+                <span>Kigali, Rwanda, East Africa</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">📞</div>
+              <div class="contact-item-text">
+                <strong>Phone / WhatsApp</strong>
+                <span>+250 7XX XXX XXX</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">✉️</div>
+              <div class="contact-item-text">
+                <strong>Email</strong>
+                <span>info@wildlifefriendlysafari.com</span>
+              </div>
+            </div>
+            <div class="contact-item">
+              <div class="contact-icon">🕐</div>
+              <div class="contact-item-text">
+                <strong>Working Hours</strong>
+                <span>Mon – Sat: 8:00 AM – 6:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-form">
+          <h4 style="font-family:'Playfair Display',serif;font-size:22px;margin-bottom:24px;color:var(--green-900);">Send Us a Message</h4>
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="Your first name" />
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Your last name" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="email" placeholder="your@email.com" />
+            </div>
+            <div class="form-group">
+              <label>Phone / WhatsApp</label>
+              <input type="tel" placeholder="+1 234 567 8900" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Service Interested In</label>
+            <select>
+              <option value="">— Select a service —</option>
+              <option>Wildlife Safari</option>
+              <option>Gorilla & Chimps Trekking</option>
+              <option>Car Rental</option>
+              <option>Agro Tourism</option>
+              <option>Cultural & Historical Tours</option>
+              <option>Educational Tours</option>
+              <option>Long & Short Term Staying</option>
+              <option>Tourism & New Investors</option>
+              <option>Adventure Tours</option>
+              <option>Road Trip Packages</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Travel Date</label>
+              <input type="date" />
+            </div>
+            <div class="form-group">
+              <label>Group Size</label>
+              <input type="number" placeholder="e.g. 4" min="1" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Message</label>
+            <textarea placeholder="Tell us about your dream trip..."></textarea>
+          </div>
+          <button class="btn btn-primary form-submit">Send Message ✉️</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ══════════════════════════════════════════════ -->
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo" style="margin-bottom:4px;">
+            <div class="nav-logo-icon">🦁</div>
+            <div class="nav-logo-text">
+              <strong>Wildlife Friendly</strong>
+              <span>Safari Ltd</span>
+            </div>
+          </div>
+          <p>Your trusted partner for authentic, eco-friendly safari experiences across East Africa. Creating memories that last a lifetime.</p>
+          <div class="footer-socials">
+            <div class="social-icon">📘</div>
+            <div class="social-icon">📷</div>
+            <div class="social-icon">🐦</div>
+            <div class="social-icon">▶️</div>
+          </div>
+        </div>
+
+        <div class="footer-col">
+          <h4>Our Services</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Wildlife Safari</a></li>
+            <li><a href="#services">Gorilla Trekking</a></li>
+            <li><a href="#services">Chimps Trekking</a></li>
+            <li><a href="#services">Car Rental</a></li>
+            <li><a href="#services">Agro Tourism</a></li>
+            <li><a href="#services">Adventure Tours</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Explore More</h4>
+          <ul class="footer-links">
+            <li><a href="#services">Cultural Tours</a></li>
+            <li><a href="#services">Educational Tours</a></li>
+            <li><a href="#services">Road Trip Packages</a></li>
+            <li><a href="#services">Long Term Staying</a></li>
+            <li><a href="#services">Investor Tours</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#destinations">Destinations</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#testimonials">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 Wildlife Friendly Safari Ltd. All rights reserved.</p>
+        <p>Made with ❤️ for East Africa's wild places.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ─── SCRIPTS ────────────────────────────────────────── -->
+  <script>
+    // Sticky navbar
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 60);
+    });
+
+    // Hamburger (mobile)
+    const hamburger = document.getElementById('hamburger');
+    hamburger.addEventListener('click', () => {
+      alert('Mobile menu — coming soon in the full build!');
+    });
+
+    // Form submit mock
+    document.querySelector('.form-submit').addEventListener('click', (e) => {
+      e.preventDefault();
+      const btn = e.target;
+      btn.textContent = '✅ Message Sent!';
+      btn.style.background = 'var(--green-400)';
+      setTimeout(() => {
+        btn.textContent = 'Send Message ✉️';
+        btn.style.background = '';
+      }, 3000);
+    });
+
+    // Simple fade-in on scroll
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.service-card, .testi-card, .dest-card, .why-point').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+      el.style.transition = 'opacity .55s ease, transform .55s ease';
+      observer.observe(el);
+    });
+  </script>
+
+</body>
+</html>
